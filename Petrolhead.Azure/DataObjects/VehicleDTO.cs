@@ -5,16 +5,9 @@ using System.Web;
 
 namespace Petrolhead.Azure.DataObjects
 {
-    public class Vehicle
+    public class VehicleDTO
         : ModelBase
     {
-        public Vehicle()
-        {
-            Expenses = new List<Expense>();
-            Refuels = new List<Refuel>();
-            Repairs = new List<Repair>();
-        }
-
         public string Manufacturer { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
@@ -32,8 +25,8 @@ namespace Petrolhead.Azure.DataObjects
         public DateTimeOffset? DateOfNextWarrant { get; set; }
         public DateTimeOffset? DateOfNextRegistration { get; set; }
 
-        public virtual ICollection<Expense> Expenses { get; set; }
-        public virtual ICollection<Refuel> Refuels { get; set; }
-        public virtual ICollection<Repair> Repairs { get; set; }
+        public virtual ICollection<ExpenseDTO> Expenses { get; set; }
+        public virtual ICollection<RefuelDTO> Refuels { get; set; }
+        public virtual ICollection<RepairDTO> Repairs { get; set; }
     }
 }

@@ -32,6 +32,11 @@ namespace Petrolhead.Azure.Models
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
 
-        public System.Data.Entity.DbSet<Petrolhead.Azure.DataObjects.Vehicle> Vehicles { get; set; }
+        public DbSet<DataObjects.Vehicle> Vehicles { get; set; }
+        public DbSet<DataObjects.Expense> Expenses { get; set; }
+        public DbSet<DataObjects.Refuel> Refuels { get; set; }
+        public DbSet<DataObjects.Repair> Repairs { get; set; }
+        public DbSet<DataObjects.Component> Components { get; set; }
+        public DbSet<DataObjects.Purchase> Purchases { get; set; }
     }
 }

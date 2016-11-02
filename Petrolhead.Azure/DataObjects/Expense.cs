@@ -10,6 +10,11 @@ namespace Petrolhead.Azure.DataObjects
     public class Expense
         : ModelBase
     {
+        public Expense()
+        {
+            Purchases = new List<Purchase>();
+        }
+
         public DateTimeOffset? DateOfTransaction { get; set; }
         public decimal? Cost { get; set; }        
         public virtual ICollection<Purchase> Purchases { get; set; }

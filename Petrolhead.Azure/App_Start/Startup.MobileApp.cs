@@ -22,6 +22,42 @@ namespace Petrolhead.Azure
                 .UseDefaultConfiguration()
                 .ApplyTo(config);
 
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Vehicle, VehicleDTO>()
+                .ForMember(vehicleDTO => vehicleDTO.Expenses, map => map.MapFrom(vehicle => vehicle.Expenses))
+                .ForMember(vehicleDTO => vehicleDTO.Refuels, map => map.MapFrom(vehicle => vehicle.Refuels))
+                .ForMember(vehicleDTO => vehicleDTO.Repairs, map => map.MapFrom(vehicle => vehicle.Repairs));
+
+                cfg.CreateMap<VehicleDTO, Vehicle>()
+                .ForMember(vehicle => vehicle.Expenses, map => map.MapFrom(vehicleDTO => vehicleDTO.Expenses))
+                .ForMember(vehicle => vehicle.Refuels, map => map.MapFrom(vehicleDTO => vehicleDTO.Refuels))
+                .ForMember(vehicle => vehicle.Repairs, map => map.MapFrom(vehicleDTO => vehicleDTO.Repairs));
+
+                cfg.CreateMap<Expense, ExpenseDTO>()
+                .ForMember(expenseDTO => expenseDTO.Purchases, map => map.MapFrom(expense => expense.Purchases));
+
+                cfg.CreateMap<ExpenseDTO, Expense>()
+                .ForMember(expense => expense.Purchases, map => map.MapFrom(expenseDTO => expenseDTO.Purchases));
+
+                cfg.CreateMap<Repair, RepairDTO>()
+                .ForMember(repairDTO => repairDTO.Components, map => map.MapFrom(repair => repair.Components));
+                cfg.CreateMap<RepairDTO, Repair>()
+                .ForMember(repair => repair.Components, map => map.MapFrom(repairDTO => repairDTO.Components));
+
+                cfg.CreateMap<Refuel, RefuelDTO>();
+                cfg.CreateMap<RefuelDTO, Refuel>();
+
+                cfg.CreateMap<Component, ComponentDTO>();
+                cfg.CreateMap<ComponentDTO, Component>();
+
+
+                cfg.CreateMap<Purchase, PurchaseDTO>();
+                cfg.CreateMap<PurchaseDTO, Purchase>();
+
+
+            });
+
             // Use Entity Framework Code First to create database tables based on your DbContext
             Database.SetInitializer(new PetrolheadAppInitializer());
 
