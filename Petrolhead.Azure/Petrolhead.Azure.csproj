@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FE32880D-26C1-4BFE-9650-0698D3B5BDE5}</ProjectGuid>
+    <ProjectGuid>{18B286C8-830C-461E-94D5-9CE33600EECE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -213,10 +213,10 @@
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="DataObjects\Component.cs" />
-    <Compile Include="DataObjects\ModelBase.cs" />
-    <Compile Include="DataObjects\Refuel.cs" />
     <Compile Include="DataObjects\Expense.cs" />
+    <Compile Include="DataObjects\ModelBase.cs" />
     <Compile Include="DataObjects\Purchase.cs" />
+    <Compile Include="DataObjects\Refuel.cs" />
     <Compile Include="DataObjects\Repair.cs" />
     <Compile Include="DataObjects\Vehicle.cs" />
     <Compile Include="Helpers\ExpandPropertyAttribute.cs" />
@@ -253,7 +253,7 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\PetrolheadApp.pubxml" />
+    <None Include="Properties\PublishProfiles\petrolheadapp - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -271,7 +271,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53216</DevelopmentServerPort>
+          <DevelopmentServerPort>55449</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:62708/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

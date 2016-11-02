@@ -6,9 +6,9 @@ using System.Web.Http;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Authentication;
 using Microsoft.Azure.Mobile.Server.Config;
-using Owin;
-using Petrolhead.Azure.Models;
 using Petrolhead.Azure.DataObjects;
+using Petrolhead.Azure.Models;
+using Owin;
 
 namespace Petrolhead.Azure
 {
@@ -22,6 +22,7 @@ namespace Petrolhead.Azure
                 .UseDefaultConfiguration()
                 .ApplyTo(config);
 
+            // Use Entity Framework Code First to create database tables based on your DbContext
             Database.SetInitializer(new PetrolheadAppInitializer());
 
             MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
@@ -43,7 +44,7 @@ namespace Petrolhead.Azure
         }
     }
 
-    public sealed class PetrolheadAppInitializer : CreateDatabaseIfNotExists<Models.PetrolheadAppContext>
+    public sealed class PetrolheadAppInitializer : DropCreateDatabaseIfModelChanges<PetrolheadAppContext>
     {
         protected override void Seed(PetrolheadAppContext context)
         {
@@ -83,7 +84,7 @@ namespace Petrolhead.Azure
                     Description = "The wheels on the bus go round and round",
                     DateFailed = new DateTime(2000, 1, 1),
                     DateRepaired = new DateTime(2000, 1, 3),
-                    Cost = 550                    
+                    Cost = 550
                 },
                 new Component()
                 {
@@ -120,7 +121,7 @@ namespace Petrolhead.Azure
                     Description = "Best. Car. Ever!",
                     DatePurchased = new DateTime(2005, 10, 1),
                     PurchasedAtLocation = "Auckland, New Zealand",
-                    Cost = 49999.99M,                    
+                    Cost = 49999.99M,
                 },
                 new Purchase()
                 {
@@ -131,7 +132,7 @@ namespace Petrolhead.Azure
                     PurchasedAtLocation = "Auckland, New Zealand",
                     Cost = 4.99m,
                 },
-               
+
             };
 
             List<Expense> expenses = new List<Expense>()
@@ -182,7 +183,5 @@ namespace Petrolhead.Azure
             base.Seed(context);
         }
     }
-
-    
 }
 
